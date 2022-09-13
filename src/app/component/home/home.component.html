@@ -1,0 +1,63 @@
+
+<app-header [allData]= "allMovies"></app-header>
+<div class=" container">
+    <div class="row">
+
+        <div  class=  " col-md-4 d-flex position-relative flex-column justify-content-center">
+            <div>
+                <div class="linetop "></div>
+               <h2 class=" w-100 my-5" >Trending <a routerLink="movies">Movies</a> To Show Right Now</h2>
+
+                <div class="linebot "></div>
+            </div>
+
+        </div>
+
+
+        <div class=" moviess col-lg-2 col-md-4 col-sm-12 position-relative my-4 item" *ngFor="let movie of allMovies">
+            <a [routerLink]="['/MovieDetails',movie.id]" class=  "item">
+              <img [src]="'https://image.tmdb.org/t/p/w500/'+movie.poster_path"  class=" w-100" alt="">
+              <h3 class="moviename ">{{movie.title}}</h3>
+
+                <!-- <p>{{movie.overview}}</p> -->
+                <div class=" vot position-absolute d-flex align-items-center justify-content-center top-0 end-0 bg-dark text-white">
+                    {{movie.vote_average | number:'1.0-2'}}
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="  col-md-4 d-flex  flex-column justify-content-center">
+            <div class="linetop "></div>
+            <h2 class=" w-100 my-5">Tranding Tv To Watch Rigth Now </h2>
+            <div class="linebot "></div>
+        </div>
+        <div class=" col-lg-2 col-md-4 col-sm-12 position-relative my-4" *ngFor="let movie of allTv">
+            <div class="item">
+              <img [src]="'https://image.tmdb.org/t/p/w500'+movie.poster_path" class=" w-100" alt="">
+              <h3>{{movie.name}}</h3>
+                <!-- <p>{{movie.overview}}</p> -->
+                <div class=" vot position-absolute d-flex align-items-center justify-content-center top-0 end-0 bg-dark text-white">
+                    {{movie.vote_average | number:'1.0-2'}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="  col-md-4 d-flex  flex-column justify-content-center">
+            <div class="linetop "></div>
+            <h2 class=" w-100 my-5">Tranding People</h2>
+            <div class="linebot "></div>
+        </div>
+        <div class=" col-lg-2 col-md-4 col-sm-12 position-relative my-4" *ngFor="let movie of allPeople">
+            <div class="item">
+                            <img [src]="'https://image.tmdb.org/t/p/w500/'+movie.profile_path" class=" w-100" alt="">
+
+              <h3>{{movie.name}}</h3>
+            </div>
+        </div>
+    </div>
+</div>

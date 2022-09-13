@@ -1,0 +1,39 @@
+<form class=" container text-white mx-auto w-75 my-5 " [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm)"  >
+    <div class=" alert alert-danger m-3 "*ngIf="errors">
+    {{errors}}
+    </div>
+
+
+        <div class=" form-group">
+            <label for="email">Email</label>
+            <input type="email " formControlName="email" id="email"
+            class="form-control ng-untouched ng-pristine ng-invalid">
+
+            <div class=" alert alert-danger my-2  pt-3 pb-1 "
+            *ngIf="loginForm.get('email')?.errors !==null && loginForm.get('email')?.touched">
+            <p *ngIf="loginForm.get('email')?.errors?.required ">Email is requried</p>
+            <p *ngIf="loginForm.get('email')?.errors?.email ">Email not valid</p>
+
+        </div>
+
+        </div>
+
+        <div class="form-group">
+            <label for="pass">password</label>
+            <input type="password" formControlName="password" id="pass"
+            class="form-control ng-untouched ng-pristine ng-invalid">
+
+            <div class=" alert alert-danger my-2  pt-3 pb-1 "
+            *ngIf="loginForm.get('password')?.errors !==null && loginForm.get('password')?.touched">
+            <p *ngIf="loginForm.get('password')?.errors?.required ">Password is requried</p>
+            <p *ngIf="loginForm.get('password')?.errors?.pattern ">Password not valid</p>
+            <!-- <p *ngIf="loginForm.get('pass')?.errors?.min ">Password  min is 8</p>  -->
+        </div>
+
+        </div>
+
+
+
+        <button [disabled]="loginForm.invalid" type="submit" class=" btn btn-primary my-4">Login</button>
+
+    </form>

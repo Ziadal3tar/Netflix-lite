@@ -1,0 +1,70 @@
+.icone {
+  width: 10rem;
+}
+
+nav {
+  box-shadow: 0 .5rem 1rem #00000026 !important;
+}
+
+ul li .linee {
+  transition: 0.5s;
+  opacity: 0;
+  width: 0.01px;
+  height: 2px;
+}
+
+ul li .lineee {
+  transition: 0.5s;
+  opacity: 0;
+  width: 0.01px;
+  height: 2px;
+}
+
+.fab {
+  transition: 0.5s;
+}
+
+ul li:hover .fab {
+  color: grey !important;
+}
+
+ul li a {
+  transition: 0.5s;
+}
+
+ul li:hover a {
+  color: grey !important;
+}
+
+@media screen and (max-width: 767px) {
+
+  .upmd {
+    display: none !important;
+
+  }
+
+  .logos{
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 767px) {
+
+  .upsm {
+    display: none !important;
+  }
+  .logos{
+    width: 25%;
+  }
+  .logout{
+    position: absolute !important;
+    right: 0 !important;
+  }
+}
+
+.navbar-toggler-icon{
+  color:rgb(255, 255, 255) !important;
+}
+.navbar-toggler{
+  color:rgb(255, 255, 255) !important;
+}

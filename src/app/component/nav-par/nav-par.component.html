@@ -1,0 +1,96 @@
+
+
+ <nav class="navbar navbar-expand-lg navbar-dark bg-transparent m-0 p-0">
+    <div class="container-fluid ">
+      <a class="navbar-brand w-25 fs-4 fw-bolder" [routerLink]="home"  (click)="goHome()" >Netflix</a>
+      <button *ngIf="islogin" class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div *ngIf="!islogin" class=" d-flex align-items-center justify-content-evenly list-unstyled ">
+        <li >
+            <a routerLink="register">Register</a>
+        </li>
+        <li >
+            <a routerLink="login" class=" ps-2">Login</a>
+         </li>
+
+      </div>
+
+
+
+
+
+
+      <div *ngIf="islogin" class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav w-50 d-flex align-items-md-center align-items-sm-start  justify-content-between ">
+          <a class="nav-link" routerLink="movies">Movies</a>
+          <a class="nav-link" routerLink="tv">TV</a>
+          <a class="nav-link" routerLink="people">People</a>
+          <a class="nav-link" routerLink="about">About</a>
+          <a routerLink="login" (click)="logout()" class="nav-link logout">Logout</a>
+
+
+        </div>
+      </div>
+
+
+      <!-- <div *ngIf="islogin" class=" d-flex align-items-center justify-content-evenly list-unstyled ">
+        <a  routerLink="login"  (click)="logout()" class=" ps-2">Logout</a>
+
+      </div> -->
+    </div>
+  </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<div class="upsm w-75 bg-black bg-opacity-50 h-75 position-absolute top-0 " style="z-index: 9;">
+  <ul class=" list-unstyled mx-3 d-flex flex-column justify-content-between h-75">
+    <li *ngIf="!islogin" >
+        <a   class=" h2">Netflix</a>
+    </li>
+    <li *ngIf="islogin" >
+        <a  routerLink="home" class="  h2">Netflix</a>
+    </li>
+
+    <li *ngIf="islogin">
+        <a routerLink="home">Home</a>
+        <div class=" linee bg-white"></div>
+    </li>
+
+    <li *ngIf="islogin">
+        <a routerLink="movies">Movies</a>
+        <div class=" linee bg-white"></div>
+    </li>
+
+    <li *ngIf="islogin">
+        <a routerLink="tv">TV</a>
+        <div class=" lineee bg-white"></div>
+    </li>
+    <li *ngIf="islogin">
+        <a routerLink="people">People</a>
+        <div class=" linee bg-white"></div>
+    </li>
+    <li *ngIf="islogin">
+        <a routerLink="about">About</a>
+        <div class=" linee bg-white"></div>
+    </li>
+
+</ul>
+</div> -->

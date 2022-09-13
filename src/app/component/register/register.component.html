@@ -1,0 +1,126 @@
+
+<!-- <nav class="navbar navbar-expand-lg navbar-dark  navcolor">
+    <div class="container-fluid ">
+      <a class="navbar-brand fw-bolder fs-3" href="#">Netflix</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+        <div class=" d-flex justify-content-evenly icone">
+            <i class="fab fa-instagram text-light"></i>
+
+            <i class="fab fa-twitter text-light"></i>
+
+            <i class="fab fa-facebook text-light"></i>
+
+            <i class="fab fa-youtube text-light"></i>
+        </div>
+
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+
+        </form>
+
+
+      </div>
+    </div>
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0 end-0 pe-3">
+        <li class="nav-item">
+          <a class="nav-link text-white fw-bolder" aria-current="page" href="#">login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white fw-bolder " href="#">register</a>
+        </li>
+
+
+
+
+      </ul>
+  </nav> -->
+
+
+<form class=" container text-white mx-auto w-75 my-5 " [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm)"  >
+<div class=" alert alert-danger m-3 "*ngIf="errors">
+{{errors}}
+</div>
+    <div class=" form-group">
+        <label for="first_name">fristName</label>
+        <input type="text " formControlName="first_name" id="first_name"
+        class="form-control ng-untouched ng-pristine ng-invalid">
+
+
+        <div class=" alert alert-danger my-2  pt-3 pb-1 "
+            *ngIf="registerForm.get('first_name')?.errors !==null && registerForm.get('first_name')?.touched">
+            <p *ngIf="registerForm.get('first_name')?.errors?.required ">First name is requried</p>
+            <p *ngIf="registerForm.get('first_name')?.errors?.minlength ">First name min char is 3</p>
+            <p *ngIf="registerForm.get('first_name')?.errors?.maxlength">First name max char is 8</p>
+        </div>
+        </div>
+
+    <div class=" form-group">
+        <label for="last_name">lastname</label>
+        <input type="text " formControlName="last_name" id="last_name"
+        class="form-control ng-untouched ng-pristine ng-invalid">
+
+        <div class=" alert alert-danger my-2  pt-3 pb-1 "
+            *ngIf="registerForm.get('last_name')?.errors !==null && registerForm.get('last_name')?.touched">
+            <p *ngIf="registerForm.get('last_name')?.errors?.required ">last name is requried</p>
+            <p *ngIf="registerForm.get('last_name')?.errors?.minlength ">last name min char is 3</p>
+            <p *ngIf="registerForm.get('last_name')?.errors?.maxlength">last name max char is 8</p>
+        </div>
+    </div>
+
+    <div class=" form-group">
+        <label for="email">Email</label>
+        <input type="email " formControlName="email" id="email"
+        class="form-control ng-untouched ng-pristine ng-invalid">
+
+        <div class=" alert alert-danger my-2  pt-3 pb-1 "
+        *ngIf="registerForm.get('email')?.errors !==null && registerForm.get('email')?.touched">
+        <p *ngIf="registerForm.get('email')?.errors?.required ">Email is requried</p>
+        <p *ngIf="registerForm.get('email')?.errors?.email ">Email not valid</p>
+
+    </div>
+
+    </div>
+
+    <div class=" form-group">
+        <label for="pass">password</label>
+        <input type="password" formControlName="password" id="pass"
+        class="form-control ng-untouched ng-pristine ng-invalid">
+
+        <div class=" alert alert-danger my-2  pt-3 pb-1 "
+        *ngIf="registerForm.get('password')?.errors !==null && registerForm.get('password')?.touched">
+        <p *ngIf="registerForm.get('password')?.errors?.required ">Password is requried</p>
+        <p *ngIf="registerForm.get('password')?.errors?.pattern ">Password not valid</p>
+        <!-- <p *ngIf="registerForm.get('pass')?.errors?.min ">Password  min is 8</p>  -->
+    </div>
+
+    </div>
+
+    <div class=" form-group">
+        <label for="age">age</label>
+        <input type="number"  formControlName="age" id="age"
+        class="form-control ng-untouched ng-pristine ng-invalid">
+        <div class=" alert alert-danger my-2  pt-3 pb-1 "
+        *ngIf="registerForm.get('age')?.errors !==null && registerForm.get('age')?.touched">
+        <p *ngIf="registerForm.get('age')?.errors?.required ">Age is requried</p>
+        <p *ngIf="registerForm.get('age')?.errors?.min ">Age min is 12</p>
+        <p *ngIf="registerForm.get('age')?.errors?.max">Age min is 101</p>
+    </div>
+    </div>
+
+    <button [disabled]="registerForm.invalid" type="submit" class=" btn btn-primary my-4">Register</button>
+
+</form>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+<div class=" container">
+    <div class="row mt-5">
+        <div class=" col-md-5 offset-md-1">
+            <img [src]="'https://image.tmdb.org/t/p/w500/'+ movieDetails.poster_path" class="  d-flex align-items-center" alt="">
+        
+        
+        </div>
+        <div class=" col-md-6 ">
+            <h1>{{movieDetails.title}}</h1>
+            <h2>{{movieDetails.tagline}}</h2>
+            <h4>{{movieDetails.overview}}</h4>
+            <h3> Release Date : {{movieDetails.release_date}}</h3>
+            <h3>Number of votes : {{movieDetails.vote_count}}</h3>
+            <h3>RATE : {{movieDetails.vote_average}}</h3>
+         
+
+        </div>
+    </div>
+</div>
