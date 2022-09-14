@@ -68,3 +68,13 @@ ul li:hover a {
 .navbar-toggler{
   color:rgb(255, 255, 255) !important;
 }
+.navbg{
+  background-color: #131722 !important;
+  transition: 0.6s !important;
+}
+.NAVbg{
+  background-color: #131722 !important;
+  opacity: 0.5 !important;
+  transition: 0.6s !important;
+
+}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
 
@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/auth.service';
 export class NavParComponent  {
 islogin:boolean = false;
 home:any
+navbg="NAVbg"
   constructor(private _authService:AuthService ,private _router:Router) {
    this._authService.userData.subscribe(res =>{
 
@@ -35,4 +36,16 @@ this._router.navigate(['home'])
   }
 }
 
+
+
+@HostListener('window:scroll', [])
+navBg(){
+  if(scrollY >= 567){
+    this.navbg = "navbg"
+  }else if(scrollY <= 567){
+    this.navbg = "NAVbg"
+
+  }
+
+}
 }
