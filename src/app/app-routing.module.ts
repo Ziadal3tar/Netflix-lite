@@ -24,7 +24,7 @@ const routes: Routes = [
   {path:'MovieDetails/:id', canActivate:[AuthGuard],component: MovieDetialsComponent},
   {path:'**', component: NotFoundComponent},
   {path:'home/movies', component: MoviesComponent},
- 
+
   {path: 'settings',loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule)}
 ];
 

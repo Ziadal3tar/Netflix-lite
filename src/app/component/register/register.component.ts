@@ -1,4 +1,5 @@
 // import { Route } from '@angular/compiler/src/core';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -24,27 +25,29 @@ registerForm:FormGroup = new FormGroup({
 
 
   registerUser(form:any){
-    const user ={
-      firstName:this.registerForm.get("first_name")?.value,
-      lastName:this.registerForm.get("last_name")?.value,
-      email:this.registerForm.get("email")?.value,
-      password:this.registerForm.get("password")?.value,
-      age:this.registerForm.get("age")?.value,
+    // const user ={
+    //   firstName:this.registerForm.get("first_name")?.value,
+    //   lastName:this.registerForm.get("last_name")?.value,
+    //   email:this.registerForm.get("email")?.value,
+    //   password:this.registerForm.get("password")?.value,
+    //   age:this.registerForm.get("age")?.value,
+    // }
 
-    }
-    if (form.valid) {
 
-      this._AuthService.signUp(user).subscribe((res:any) =>{
 
-        if(res.message=='Added'){
+      this._AuthService.signUp(this.registerForm.value).subscribe((res:any)=>{
+        console.log(res);
+
+        if(res.message=='added successfully'){
           this._router.navigate(['login'])
         }else{
           this.errors=res.message
         }
+      },(err: HttpErrorResponse) => {
+      console.log(err);
+      }
+      )
 
-      })
-
-    }
 
   }
 }

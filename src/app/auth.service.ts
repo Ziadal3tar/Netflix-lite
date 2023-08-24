@@ -1,43 +1,32 @@
 import { FormGroup } from '@angular/forms';
 import { Injectable } from '@angular/core';
-import{HttpClient, HttpClientModule} from'@angular/common/http'
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
-import jwt_decode from "jwt-decode";
+import jwt_decode from 'jwt-decode';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
+  userData: BehaviorSubject<any> = new BehaviorSubject<any>('');
+  private baseUrl = 'https://netflix-api-zeta.vercel.app/auth';
 
-userData:BehaviorSubject<any>=new BehaviorSubject<any>('')
-private baseUrl = 'https://api-netflix-zaa.herokuapp.com';
+  constructor(private http: HttpClient) {}
 
-  constructor(private http:HttpClient) { }
-  signUp(user:any){
+  signUp(data: any): any {
+    console.log(data);
 
-    return this.http.post(`${this.baseUrl}/signUp`,user)
-
-
+    return this.http.post(`${this.baseUrl}/signUp`, data);
   }
 
-
-
-
-
-
-
-
-
-  saveUser(){
-    let decode:any = (localStorage.getItem("userToken"));
-    this.userData.next( jwt_decode(decode))
-
-
+  saveUser() {
+    let decode: any = localStorage.getItem('userToken');
+    this.userData.next(jwt_decode(decode));
   }
 
-  login(data:any) {
-    return this.http.post(`${this.baseUrl}/signIn`,data)
+  login(data: any): any {
+    console.log(data);
 
-
+    return this.http.post(`${this.baseUrl}/signIn`, data);
   }
 }
