@@ -26,16 +26,18 @@ export class LoginComponent {
 
     this._AuthService.login(user).subscribe(
       (data: any) => {
+
+
         if (data.message == 'welcome') {
                 this._router.navigate(['home']);
-                localStorage.setItem('id', data.id);
+                localStorage.setItem('userToken', data.token);
                 this._AuthService.saveUser();
               } else {
                 this.errors = data.message;
               }
       },
       (err: HttpErrorResponse) => {
-
+ 
       }
     );
 

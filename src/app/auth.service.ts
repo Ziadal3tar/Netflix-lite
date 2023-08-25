@@ -12,21 +12,16 @@ export class AuthService {
   private baseUrl = 'https://netflix-api-zeta.vercel.app/auth';
 
   constructor(private http: HttpClient) {}
-
   signUp(data: any): any {
-
-
     return this.http.post(`${this.baseUrl}/signUp`, data);
   }
 
   saveUser() {
-    let id: any = localStorage.getItem('id');
-    this.userData.next(id);
+    let decode: any = localStorage.getItem('userToken');
+    this.userData.next(jwt_decode(decode));
   }
 
   login(data: any): any {
-
-
     return this.http.post(`${this.baseUrl}/signIn`, data);
   }
 }
