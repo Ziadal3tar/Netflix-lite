@@ -36,7 +36,7 @@ registerForm:FormGroup = new FormGroup({
 
 
       this._AuthService.signUp(this.registerForm.value).subscribe((res:any)=>{
-        console.log(res);
+
 
         if(res.message=='added successfully'){
           this._router.navigate(['login'])
@@ -44,7 +44,7 @@ registerForm:FormGroup = new FormGroup({
           this.errors=res.message
         }
       },(err: HttpErrorResponse) => {
-      console.log(err);
+
       }
       )
 

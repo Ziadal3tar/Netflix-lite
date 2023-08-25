@@ -23,32 +23,21 @@ export class LoginComponent {
       email: this.loginForm.get('email')?.value,
       password: this.loginForm.get('password')?.value,
     };
-    console.log(user);
+
     this._AuthService.login(user).subscribe(
       (data: any) => {
         if (data.message == 'welcome') {
                 this._router.navigate(['home']);
-                localStorage.setItem('userToken', data.token);
+                localStorage.setItem('id', data.id);
                 this._AuthService.saveUser();
               } else {
                 this.errors = data.message;
               }
       },
       (err: HttpErrorResponse) => {
-        console.log(err);
+
       }
     );
-    // if (form.valid) {
-    //   this._AuthService.login(user).subscribe((data: any) => {
-    //     console.log(data);
-    //     if (data.message == 'success') {
-    //       this._router.navigate(['home']);
-    //       localStorage.setItem('userToken', data.token);
-    //       this._AuthService.saveUser();
-    //     } else {
-    //       this.errors = data.message;
-    //     }
-    //   });
-    // }
+
   }
 }

@@ -14,18 +14,18 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   signUp(data: any): any {
-    console.log(data);
+
 
     return this.http.post(`${this.baseUrl}/signUp`, data);
   }
 
   saveUser() {
-    let decode: any = localStorage.getItem('userToken');
-    this.userData.next(jwt_decode(decode));
+    let id: any = localStorage.getItem('id');
+    this.userData.next(id);
   }
 
   login(data: any): any {
-    console.log(data);
+
 
     return this.http.post(`${this.baseUrl}/signIn`, data);
   }
