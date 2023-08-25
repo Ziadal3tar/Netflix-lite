@@ -37,7 +37,8 @@ export class LoginComponent {
               }
       },
       (err: HttpErrorResponse) => {
- 
+ console.log(err);
+
       }
     );
 
