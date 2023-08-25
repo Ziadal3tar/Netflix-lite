@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/auth.service';
 })
 export class LoginComponent {
   errors: string = '';
+  errMessage:any=''
   loginForm: FormGroup = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
     password: new FormControl(null, [Validators.required]),
@@ -37,7 +38,9 @@ export class LoginComponent {
               }
       },
       (err: HttpErrorResponse) => {
- console.log(err);
+if (err.error.message) {
+this.errMessage =err.error.message
+}
 
       }
     );
